@@ -34,6 +34,7 @@
 
         <div class="py-2">
           <button class="btn btn-primary" type="submit">Submit</button>
+          <span>{{msg}}</span>
         </div>
       </vue-form>
   </div>
@@ -47,6 +48,7 @@ export default {
   mixins: [VueForm],
   data () {
     return {
+      msg: 'unsubmitted',
       formstate: {},
       model: {
         name: 'Henk de Bopper',
@@ -67,6 +69,7 @@ export default {
       }
     },
     onSubmit: function () {
+      this.msg = 'submitted'
       console.log(this.formstate)
     }
   }
