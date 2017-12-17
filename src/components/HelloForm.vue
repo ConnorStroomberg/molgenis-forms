@@ -1,7 +1,6 @@
 <template>
   <div class="hello-form">
     <h1>Hello Form</h1>
-    <p>{{msg}}</p>
 
     <vue-form :state="formstate" @submit.prevent="onSubmit">
 
@@ -24,9 +23,9 @@
 
           <label>Age</label>
           <input type="text" class="form-control" v-model="model.age"
-            required age="age" />
+            required name="age" />
 
-          <field-messages age="age" class="form-control-feedback">
+          <field-messages name="age" class="form-control-feedback">
             <div slot="required" class="form-text text-muted">
               Age is a required field
             </div>
@@ -48,11 +47,10 @@ export default {
   mixins: [VueForm],
   data () {
     return {
-      msg: 'Welcome to Your Froms component',
       formstate: {},
       model: {
         name: 'Henk de Bopper',
-        age: undefined
+        age: ''
       }
     }
   },
@@ -69,10 +67,7 @@ export default {
       }
     },
     onSubmit: function () {
-      if (this.formstate.$invalid) {
-        // alert user and exit early
-      }
-      // otherwise submit form
+      console.log(this.formstate)
     }
   }
 }
